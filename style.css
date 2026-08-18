@@ -55,23 +55,34 @@ button: hover {
   transform: scale(1.05);
 }
 
+.flavor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 85%;
+  margin: auto;
+}
+
 .flavor {
   background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-weight: bold;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
+  transition: 0.3s ease;
+}
+
+.flavor:hover {
+  transform: scale(1.05);
 }
 
 .flavor img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 3px solid #f7a8a8;
   object-fit: cover;
+  margin-bottom: 5px;
 }
-
-button:hover {
   background-color: #f28b8b;
 }
