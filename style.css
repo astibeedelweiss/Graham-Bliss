@@ -60,6 +60,12 @@ button {
   width: 260px;
 }
 
+#popup-flavors button.selected {
+  background: #f7a8a8;
+  color: white;
+  transform: scale(1.05);
+}
+
 /* INPUTS */
 input, select {
   width: 90%;
