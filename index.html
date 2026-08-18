@@ -44,9 +44,9 @@
 
     <h3>.𖥔 ݁˖ִChoose Your Sweet Box˖°.</h3>
 
-    <button onclick="selectBundle(6)">6 pcs — ₱40</button>
-    <button onclick="selectBundle(8)">8 pcs — ₱50</button>
-    <button onclick="selectBundle(10)">10 pcs — ₱60</button>
+<button onclick="selectBundle(6); updateSelection()">6 pcs — ₱40</button>
+<button onclick="selectBundle(8); updateSelection()">8 pcs — ₱50</button>
+<button onclick="selectBundle(10); updateSelection()">10 pcs — ₱60</button>
 
     <p id="selection-count">(0/0)</p>
 
@@ -70,7 +70,11 @@
 
   </div>
 </div>
-
+  
+<input type="text" id="address" oninput="updateSelection()">
+<select id="payment" onchange="updateSelection()">
 <script src="script.js"></script>
+
 </body>
 </html>
+
