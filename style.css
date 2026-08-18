@@ -38,6 +38,22 @@ button {
   font-weight: bold;
 }
 
+.flavor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.flavor img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #f7a8a8;
+  object-fit: cover;
+}
+
 button:hover {
   background-color: #f28b8b;
 }
