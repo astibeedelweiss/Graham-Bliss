@@ -1,88 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Graham Bliss</title>
+  <title>⋆˚𝜗Eisscellent Bites𝜚˚⋆</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-  <div id="cart-panel">
-  <h3>🛒 Your Cart</h3>
-
-  <ul id="cart-items"></ul>
-
-  <p id="cart-total">Total Items: 0</p>
-
-  <button onclick="toggleCart()">Close</button>
-</div>
-
-<button id="cart-btn" onclick="toggleCart()">
-  🛒 Cart (<span id="cart-count">0</span>)
-</button>
-  
 <body>
 
-  <header>
-    <h1>Graham Bliss</h1>
-    <p>sweet little bites of happiness (｡•ᴗ•｡)♡</p>
-    <p>fresh made daily</p>
+<!-- FLOATING HEARTS -->
+<div class="hearts">
+  <span>♡</span><span>♡</span><span>♡</span>
+</div>
 
-    <p id="cart-count">🛒 Items: 0</p>
-  </header>
+<header>
+  <h1>˚ʚGraham Ballsɞ˚</h1>
+  <p>sweet little bites of happiness ദ്ദി ˉ͈̀꒳ˉ͈́ )♡</p>
+  <p>fresh made daily</p>
+</header>
 
-  <section class="menu">
+<section class="menu">
   <h2>Our Flavors</h2>
 
   <div class="flavor-grid">
-
-    <div class="flavor">
-      <img src="classic.jpg">
-      <p>Classic</p>
-    </div>
-
-    <div class="flavor">
-      <img src="milky.jpg">
-      <p>Milky</p>
-    </div>
-
-    <div class="flavor">
-      <img src="chocolate.jpg">
-      <p>Chocolate</p>
-    </div>
-
-    <div class="flavor">
-      <img src="ube.jpg">
-      <p>Ube</p>
-    </div>
-
-    <div class="flavor">
-      <img src="mallows.jpg">
-      <p>Mallows</p>
-    </div>
-
-    <div class="flavor">
-      <img src="sprinkles.jpg">
-      <p>Sprinkles</p>
-    </div>
-
+    <div class="flavor"><img src="classic.jpg"><p>Classic</p></div>
+    <div class="flavor"><img src="milky.jpg"><p>Milky</p></div>
+    <div class="flavor"><img src="chocolate.jpg"><p>Chocolate</p></div>
+    <div class="flavor"><img src="ube.jpg"><p>Ube</p></div>
+    <div class="flavor"><img src="mallows.jpg"><p>Mallows</p></div>
+    <div class="flavor"><img src="sprinkles.jpg"><p>Sprinkles</p></div>
   </div>
+
+  <button onclick="openPopup()">Buy Now!؛༊</button>
 </section>
-  
-  <section class="prices">
-    <h2>Price List</h2>
-    <p>6 pcs — ₱40</p>
-    <p>8 pcs — ₱50</p>
-    <p>10 pcs — ₱60</p>
-  </section>
 
-  <section class="order">
-    <h2>Order Now</h2>
+<section class="info">
+  <h2>Delivery Info</h2>
+  <p>We deliver within San Pedro, Laguna ♡</p>
+</section>
 
-    <p>Contact: 0918 529 1039</p>
-    <p>Location: F. Benito Avenue, Sampaguita St., San Pedro, Laguna</p>
+<!-- POPUP -->
+<div id="order-popup">
+  <div class="popup-content">
 
-    <button onclick="orderNow()">Buy Now! (｡•̀ᴗ-)✧</button>
-  </section>
+    <h3>.𖥔 ݁ ˖ִChoose Your Sweet Box༄˖°.</h3>
 
-  <script src="script.js"></script>
+    <button onclick="selectBundle(6)">6 pcs — ₱40</button>
+    <button onclick="selectBundle(8)">8 pcs — ₱50</button>
+    <button onclick="selectBundle(10)">10 pcs — ₱60</button>
+
+    <p id="selection-count">(0/0)</p>
+
+    <div id="popup-flavors"></div>
+
+    <h3>Delivery Details</h3>
+    <input type="text" id="address" placeholder="Enter your address">
+
+    <select id="payment">
+      <option value="">Select Payment</option>
+      <option>Cash on Delivery</option>
+      <option>GCash</option>
+    </select>
+
+    <button id="confirm-btn" onclick="confirmOrder()" disabled>
+      Add to Cart
+    </button>
+
+    <button onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
