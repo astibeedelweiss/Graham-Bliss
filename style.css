@@ -36,6 +36,12 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button: hover {
+  background-color: #f28b8b;
+  transform: scale(1.05);
 }
 
 .flavor {
