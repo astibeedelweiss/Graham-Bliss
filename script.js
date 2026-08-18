@@ -11,13 +11,16 @@ function openPopup() {
 
   selectedFlavors = [];
   selectedBundle = 0;
+
   document.getElementById("selection-count").innerText = "(0/0)";
+  document.getElementById("confirm-btn").disabled = true;
 
   flavors.forEach(f => {
     let btn = document.createElement("button");
     btn.innerText = f;
 
     btn.onclick = () => {
+
       if (!selectedBundle) {
         alert("Choose a sweet box first (｡•́︿•̀｡)");
         return;
@@ -37,8 +40,6 @@ function openPopup() {
 
 function closePopup() {
   document.getElementById("order-popup").style.display = "none";
-  selectedFlavors = [];
-  selectedBundle = 0;
 }
 
 function selectBundle(count) {
@@ -50,16 +51,16 @@ function updateSelection() {
   document.getElementById("selection-count").innerText =
     `(${selectedFlavors.length}/${selectedBundle})`;
 
-  let address = document.getElementById("address").value;
+  let address = document.getElementById("address").value.trim();
   let payment = document.getElementById("payment").value;
 
   let btn = document.getElementById("confirm-btn");
 
   if (
-    selectedBundle &&
+    selectedBundle > 0 &&
     selectedFlavors.length === selectedBundle &&
-    address &&
-    payment
+    address !== "" &&
+    payment !== ""
   ) {
     btn.disabled = false;
   } else {
@@ -68,6 +69,7 @@ function updateSelection() {
 }
 
 function confirmOrder() {
-  alert("Order placed! We will contact you ♡");
+  alert("Order placed! We will contact you (˶˃ ᵕ ˂˶) .ᐟ.ᐟ");
+
   closePopup();
 }
