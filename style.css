@@ -69,6 +69,13 @@ h1 {
   cursor: pointer;
 }
 
+#cart-items button {
+  margin-left: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .section {
   background: rgba(255, 255, 255, 0.85);
   margin: 20px auto;
