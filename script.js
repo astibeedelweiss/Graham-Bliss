@@ -56,16 +56,13 @@ function updateSelection() {
 
   let btn = document.getElementById("confirm-btn");
 
-  if (
+  const isComplete =
     selectedBundle > 0 &&
     selectedFlavors.length === selectedBundle &&
-    address !== "" &&
-    payment !== ""
-  ) {
-    btn.disabled = false;
-  } else {
-    btn.disabled = true;
-  }
+    address.length > 0 &&
+    payment !== "";
+
+  btn.disabled = !isComplete;
 }
 
 function confirmOrder() {
