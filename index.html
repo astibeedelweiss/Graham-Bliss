@@ -5,6 +5,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+  <div id="cart-panel">
+  <h3>🛒 Your Cart</h3>
+
+  <ul id="cart-items"></ul>
+
+  <p id="cart-total">Total Items: 0</p>
+
+  <button onclick="toggleCart()">Close</button>
+</div>
+
+<button id="cart-btn" onclick="toggleCart()">
+  🛒 Cart (<span id="cart-count">0</span>)
+</button>
+  
 <body>
 
   <header>
