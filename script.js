@@ -1,32 +1,68 @@
-function orderNow() {
-  alert("Thank you for ordering! (˶ˆᗜˆ˵)♡ Please message 0918 529 1039");
+    let selectedBundle = 0;
+let selectedFlavors = [];
+
+const flavors = ["Classic","Milky","Chocolate","Ube","Mallows","Sprinkles"];
+
+function openPopup() {
+  document.getElementById("order-popup").style.display = "flex";
+
+  let container = document.getElementById("popup-flavors");
+  container.innerHTML = "";
+
+  flavors.forEach(f => {
+    let btn = document.createElement("button");
+    btn.innerText = f;
+    btn.onclick = () => selectFlavor(f, btn);
+    container.appendChild(btn);
+  });
 }
 
-let cartItems = [];
-let cartCount = 0;
-
-function addToCart(flavor) {
-  cartItems.push(flavor);
-  cartCount++;
-
-  updateCartUI();
-
-  alert(flavor + " ˚.⋆꒰১ added to cart ໒꒱⋆.˚");
+function closePopup() {
+  document.getElementById("order-popup").style.display = "none";
+  selectedFlavors = [];
+  selectedBundle = 0;
 }
 
-function updateCartUI() {
-  document.getElementById("cart-count").innerText = cartCount;
+function selectBundle(count) {
+  selectedBundle = count;
+  updateSelection();
+}
 
-  let list = document.getElementById("cart-items");
-  list.innerHTML = "";
+function selectFlavor(flavor, btn) {
+  if (!selectedBundle) {
+    alert("Select bundle first!");
+    return;
+  }
 
-  cartItems.forEach((item, index) => {
-    let li = document.createElement("li");
+  if (selectedFlavors.length < selectedBundle) {
+    selectedFlavors.push(flavor);
+    btn.style.background = "#f7a8a8";
+  }
 
-    li.innerHTML = `
-      ${item}
-      <button onclick="removeFromCart(${index})">❌</button>
-    `;
+  updateSelection();
+}
+
+function updateSelection() {
+  document.getElementById("selection-count").innerText =
+    `(${selectedFlavors.length}/${selectedBundle})`;
+
+  let confirmBtn = document.getElementById("confirm-btn");
+
+  if (
+    selectedFlavors.length === selectedBundle &&
+    document.getElementById("address").value &&
+    document.getElementById("payment").value
+  ) {
+    confirmBtn.disabled = false;
+  } else {
+    confirmBtn.disabled = true;
+  }
+}
+
+function confirmOrder() {
+  alert("Order placed! We will contact you (˶ˆᗜˆ˵)♡");
+  closePopup();
+}
 
     list.appendChild(li);
   });
