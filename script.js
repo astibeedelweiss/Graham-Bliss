@@ -19,20 +19,19 @@ function openPopup() {
     let btn = document.createElement("button");
     btn.innerText = f;
 
-    btn.onclick = () => {
+   btn.onclick = () => {
+  if (!selectedBundle) {
+    alert("Choose a sweet box first");
+    return;
+  }
 
-      if (!selectedBundle) {
-        alert("Choose a sweet box first (｡•́︿•̀｡)");
-        return;
-      }
+  if (selectedFlavors.length < selectedBundle) {
+    selectedFlavors.push(f);
+    btn.classList.add("selected");
+  }
 
-      if (selectedFlavors.length < selectedBundle) {
-        selectedFlavors.push(f);
-        btn.classList.add("selected");
-      }
-
-      updateSelection();
-    };
+  updateSelection(); // KEEP THIS
+};
 
     container.appendChild(btn);
   });
